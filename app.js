@@ -17,7 +17,9 @@ async function main(){
   // const uri = process.env.MONGODB_URI; 
 
   // 직접 문자열을 적는 패턴을 선택
-  const uri = "mongodb://localhost:27017"; 
+  // const uri = "mongodb://localhost:27017"; 
+  // ! IPv6 주소로 연결을 허용하도록 설정되어 있는 것 같다.
+  const uri = "mongodb://127.0.0.1:27017";
   console.log(uri); //  mongodb:// 또는 mongodb+srv:// 로 시작된다.  
   const client = new MongoClient(uri);
   
