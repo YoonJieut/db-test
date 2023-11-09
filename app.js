@@ -1,4 +1,6 @@
 console.log('app.js loaded');
+const { MongoClient } = require('mongodb');
+
 
 // npm install mongodb -> MongoDB Node.js 드라이버를 설치한다.
 
@@ -14,6 +16,7 @@ async function main(){
       uri,
       { useNewUrlParser: true, useUnifiedTopology: true }
     );
+    // ! MongoClient 객체가 defined되지 않았다는 에러 발생
 
   try {
     await client.connect(); // MongoDB에 연결 시도
