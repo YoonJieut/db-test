@@ -16,7 +16,11 @@ async function main(){
     );
 
   try {
-    
+    await client.connect(); // MongoDB에 연결 시도
+    console.log("MongoDB 작성")
+
+    // 여기서 데이터베이스 작업 수행
+
   }catch(err) {
     console.log(err, "catch 구분 작동");
   } finally {
