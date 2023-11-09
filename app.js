@@ -1,8 +1,3 @@
-require('dotenv').config(); 
-// ? 이것이 하는 역할은 무엇일까?
-// ? .env가 잘 작동되는지, 환경 변수를 로드했는지 체크할 때 사용
-// * 설치 명령어 : npm install dotenv
-
 console.log('app.js loaded');
 
 //* 설치 명령어 : npm install mongodb
