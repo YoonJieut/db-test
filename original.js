@@ -47,15 +47,13 @@ async function main() {
     // 변화된 것을 조회해보자
     const foundPosts1 = await posts.find().toArray();
     console.log('All Posts : ',foundPosts1);
-    
+
   }catch(err){
     console.log("catch error block" + err);
   } finally {
     // MongoDb 닫기 -> 리로스 누출을 막아야 한다.
     await client.close();
   }
-
-
 }
 
 main()
