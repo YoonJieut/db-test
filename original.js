@@ -28,11 +28,26 @@ async function main() {
     const insertResult = await posts.insertOne(newPost);
     console.log('post created-insertedId', insertResult.insertedId);
 
-    const foundPosts = await posts.find().toArray();
-    console.log('All Posts : ',foundPosts);
+    // 모든 게시글 조회
+    // const foundPosts = await posts.find().toArray();
+    // console.log('All Posts : ',foundPosts);
 
-
-
+    // 특정 게시글 수정
+    const updateResult = await posts.updateOne(
+      { _id: insertResult.insertedId }, // 새로 생성된 게시글의 id
+      { 
+        $set: 
+          { 
+            title: '수정된 게시글 제목',
+            body: 'updated content무언가무언가'
+          }
+      }
+    );
+    console.log('Post Updated : ', updateResult.modifiedCount);
+    // 변화된 것을 조회해보자
+    const foundPosts1 = await posts.find().toArray();
+    console.log('All Posts : ',foundPosts1);
+    
   }catch(err){
     console.log("catch error block" + err);
   } finally {
