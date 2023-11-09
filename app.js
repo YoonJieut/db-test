@@ -1,7 +1,13 @@
-console.log('app.js loaded');
-// npm install mongodb -> MongoDB Node.js 드라이버를 설치한다.
-const { MongoClient } = require('mongodb');
+require('dotenv').config(); 
+// ? 이것이 하는 역할은 무엇일까?
+// ? .env가 잘 작동되는지, 환경 변수를 로드했는지 체크할 때 사용
+// * 설치 명령어 : npm install dotenv
 
+console.log('app.js loaded');
+
+//* 설치 명령어 : npm install mongodb
+// * MongoDB Node.js 드라이버를 설치한다.
+const { MongoClient } = require('mongodb');
 
 
 
@@ -16,7 +22,7 @@ async function main(){
   // 연결 문자열과 같은 민감한 정보는 하드코딩 대신 환경 변수를 통해 관리하는 것이 좋다.
   //process.env 객체를 사용하는 방법을 채택
   const uri = process.env.MONGODB_URI; 
-  console.log(uri);
+  console.log(uri); //  mongodb:// 또는 mongodb+srv:// 로 시작된다.
   
   const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   
