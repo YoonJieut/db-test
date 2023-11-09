@@ -10,21 +10,17 @@ console.log('app.js loaded');
 const { MongoClient } = require('mongodb');
 
 
-
-const uri = process.env.MONGODB_URI; 
-console.log("mongodb Uri : " + uri);
-// const client = new MongoClient(uri);
-  // console.log("mongoClient : " + client);
-
-
 async function main(){
   // atlas는 대시보드에서 연결 문자열을 사용할 수 있다.
   // 연결 문자열과 같은 민감한 정보는 하드코딩 대신 환경 변수를 통해 관리하는 것이 좋다.
   //process.env 객체를 사용하는 방법을 채택
-  const uri = process.env.MONGODB_URI; 
+  // const uri = process.env.MONGODB_URI; 
+
+  // 직접 문자열을 적는 패턴을 선택
+  const uri = "mongodb://localhost:27017"; 
   console.log(uri); //  mongodb:// 또는 mongodb+srv:// 로 시작된다.
   
-  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  const client = new MongoClient(uri);
   
 
   try {
@@ -40,4 +36,4 @@ async function main(){
   }
 }
 
-// main().catch(console.error);
+main().catch(console.error);
