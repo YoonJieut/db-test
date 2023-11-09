@@ -51,9 +51,24 @@ async function getPosts() {
   console.log('All Posts:', posts);
 }
 
+// 특정 게시글 수정
+async function updatePost(id) {
+  const post = await Post.findById(id);
+  if (post) {
+    post.title = '몽구쓰에 의해 Updated Title';
+    post.body = 'Updated content of the blog post.';
+    const result = await post.save();
+    console.log('Post Updated:', result);
+  }
+}
 
 
 // ------------------------------ 실행함수 모음
-createPost();
-getPosts();
+// createPost();
+updatePost('654c8c7b77009e24f0be0afd');
+// getPosts();
 
+
+// ----------------------종료 코드
+// 연결을 종료하려면 다음 코드를 사용하세요.
+mongoose.connection.close();
