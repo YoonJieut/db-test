@@ -1,15 +1,15 @@
 console.log('app.js loaded');
+// npm install mongodb -> MongoDB Node.js 드라이버를 설치한다.
 const { MongoClient } = require('mongodb');
 
-const uri = process.env.MONGODB_URI; 
-const client = 
-new MongoClient(
-  uri,
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
-  console.log(uri);
 
-// npm install mongodb -> MongoDB Node.js 드라이버를 설치한다.
+
+
+const uri = process.env.MONGODB_URI; 
+console.log("mongodb Uri : " + uri);
+// const client = new MongoClient(uri);
+  // console.log("mongoClient : " + client);
+
 
 async function main(){
   // atlas는 대시보드에서 연결 문자열을 사용할 수 있다.
