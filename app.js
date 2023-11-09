@@ -1,6 +1,13 @@
 console.log('app.js loaded');
 const { MongoClient } = require('mongodb');
 
+const uri = process.env.MONGODB_URI; 
+const client = 
+new MongoClient(
+  uri,
+  { useNewUrlParser: true, useUnifiedTopology: true }
+);
+  console.log(uri);
 
 // npm install mongodb -> MongoDB Node.js 드라이버를 설치한다.
 
@@ -11,12 +18,8 @@ async function main(){
   const uri = process.env.MONGODB_URI; 
   console.log(uri);
   
-  const client = 
-    new MongoClient(
-      uri,
-      { useNewUrlParser: true, useUnifiedTopology: true }
-    );
-    // ! MongoClient 객체가 defined되지 않았다는 에러 발생
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  
 
   try {
     await client.connect(); // MongoDB에 연결 시도
@@ -31,4 +34,4 @@ async function main(){
   }
 }
 
-main().catch(console.error);
+// main().catch(console.error);
