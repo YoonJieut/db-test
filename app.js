@@ -25,9 +25,24 @@ async function main(){
 
   try {
     await client.connect(); // MongoDB에 연결 시도
-    console.log("MongoDB 작성")
+    console.log("MongoDB 작성, localhost:27017")
 
-    // 여기서 데이터베이스 작업 수행
+    // * 여기서 데이터베이스 작업 수행
+    // 'test' 데이터베이스 선택
+    const db = client.db('test');
+
+    // 'users' 컬렉션 선택
+    const users = db.collection('users');
+
+    // 새로운 사용자 추가
+    const newUser = { name: "John Doe", age: 30, email: "johndoe@example.com" };
+    const insertResult = await users.insertOne(newUser);
+    console.log(`New user inserted with id ${insertResult.insertedId}`);
+
+    // 모든 사용자 조회
+    const foundUsers = await users.find().toArray();
+    console.log("Found users:", foundUsers);
+    
 
   }catch(err) {
     console.log(err, "catch 구분 작동");
