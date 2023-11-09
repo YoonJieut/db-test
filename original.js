@@ -1,6 +1,8 @@
 console.log('original Start!');
+const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb://localhost:27017/';
+// uri 파트는 조금 더 조사가 필요하지만 IPv6을 허용하는 세팅을 하는 것이 좋아보인다.
+const uri = 'mongodb://127.0.0.1:27017';
 const client = new MongoClient(uri);
 
 async function main() {
@@ -20,3 +22,6 @@ async function main() {
 
 
 }
+
+main()
+  .catch(console.error);
