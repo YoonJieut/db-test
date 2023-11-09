@@ -1,4 +1,4 @@
-require('dotenv').config(); 
+// require('dotenv').config(); 
 // ? 이것이 하는 역할은 무엇일까?
 // ? .env가 잘 작동되는지, 환경 변수를 로드했는지 체크할 때 사용
 // * 설치 명령어 : npm install dotenv
@@ -18,8 +18,7 @@ async function main(){
 
   // 직접 문자열을 적는 패턴을 선택
   const uri = "mongodb://localhost:27017"; 
-  console.log(uri); //  mongodb:// 또는 mongodb+srv:// 로 시작된다.
-  
+  console.log(uri); //  mongodb:// 또는 mongodb+srv:// 로 시작된다.  
   const client = new MongoClient(uri);
   
 
